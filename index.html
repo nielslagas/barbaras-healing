@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbara's Healing - Ayurvedische Massage</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap');
+        
+        :root {
+            --color-blue: #00337F;
+            --color-gold: #C5A572;
+            --color-light-blue: #335C98;
+            --color-light-gold: #D4BC94;
+        }
+        
+        body {
+            font-family: 'Cinzel', serif;
+            color: var(--color-gold);
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0, 51, 127, 0.8), rgba(0, 51, 127, 0.9));
+            z-index: 0;
+        }
+
+        .hero-section {
+            height: 100vh;
+            position: relative;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .bg-brand-blue {
+            background-color: var(--color-blue);
+        }
+        
+        .bg-brand-light-blue {
+            background-color: var(--color-light-blue);
+        }
+        
+        .text-brand-gold {
+            color: var(--color-gold);
+        }
+        
+        .border-brand-gold {
+            border-color: var(--color-gold);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--color-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .treatment-card {
+            transition: all 0.3s ease;
+            background-color: var(--color-light-blue);
+        }
+        
+        .treatment-card:hover {
+            transform: translateY(-5px);
+            background-color: var(--color-blue);
+            border: 1px solid var(--color-gold);
+        }
+
+        section {
+            border-bottom: 1px solid var(--color-gold);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-brand-blue fixed w-full z-50 shadow-lg border-b border-brand-gold">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <div class="flex items-center py-4">
+                        <span class="font-semibold text-2xl text-brand-gold">Barbara's Healing</span>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-8">
+                    <a href="#home" class="nav-link py-4 px-2 text-brand-gold hover:text-brand-gold transition duration-300">Home</a>
+                    <a href="#behandelingen" class="nav-link py-4 px-2 text-brand-gold hover:text-brand-gold transition duration-300">Behandelingen</a>
+                    <a href="#contact" class="nav-link py-4 px-2 text-brand-gold hover:text-brand-gold transition duration-300">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div id="home" class="hero-section flex items-center justify-center relative z-10">
+        <div class="text-center mx-4">
+            <h1 class="text-5xl font-bold mb-4 text-brand-gold">Barbara's Healing</h1>
+            <p class="text-xl text-brand-gold">Ayurvedische massage</p>
+        </div>
+    </div>
+
+    <!-- Over Mij Section -->
+    <section class="py-16 bg-brand-light-blue bg-opacity-90 relative z-10">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-4xl font-semibold text-center mb-8 text-brand-gold">Over Mij</h2>
+            <div class="leading-relaxed text-lg text-brand-gold">
+                <p class="mb-4">
+                    Mijn naam is Barbara Heezius en ik heet u van harte welkom in mijn praktijk in Velsen-Zuid. Na ruim 30 jaar ervaring in de zorg, waar ik met veel plezier ouderen heb mogen verzorgen en talloze handmassages heb gegeven, heb ik in mei 2023 mijn eigen massagepraktijk geopend.
+                </p>
+                <p>
+                    Ik specialiseer mij in Ayurvedische massage, een eeuwenoude Indiase geneeswijze die rust brengt en het lichaam doet herleven. Deze holistische benadering helpt bij het herstellen van het evenwicht in de verschillende energiekanalen, ook wel chakra's genoemd.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Behandelingen Section -->
+    <section id="behandelingen" class="py-16 bg-brand-blue bg-opacity-90 relative z-10">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-4xl font-semibold text-center mb-8 text-brand-gold">Behandelingen</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="treatment-card p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-brand-gold">Ayurvedische Voet/been massage</h3>
+                    <p class="mb-4 text-brand-gold">75 minuten inclusief voetenbadje</p>
+                    <p class="text-2xl font-bold text-brand-gold">€60</p>
+                </div>
+                <div class="treatment-card p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-brand-gold">Nek-schouder-rug massage</h3>
+                    <p class="mb-4 text-brand-gold">60 minuten</p>
+                    <p class="text-2xl font-bold text-brand-gold">€55</p>
+                </div>
+                <div class="treatment-card p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-brand-gold">Nek-schouder-rug massage</h3>
+                    <p class="mb-4 text-brand-gold">30 minuten</p>
+                    <p class="text-2xl font-bold text-brand-gold">€30</p>
+                </div>
+                <div class="treatment-card p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-brand-gold">Hand massage</h3>
+                    <p class="mb-4 text-brand-gold">30 minuten</p>
+                    <p class="text-2xl font-bold text-brand-gold">€30</p>
+                </div>
+                <div class="treatment-card p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-brand-gold">Hoofdmassage</h3>
+                    <p class="mb-4 text-brand-gold">30 minuten</p>
+                    <p class="text-2xl font-bold text-brand-gold">€30</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-brand-light-blue bg-opacity-90 relative z-10">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-4xl font-semibold text-center mb-8 text-brand-gold">Contact</h2>
+            <div class="text-center text-lg text-brand-gold">
+                <p class="mb-4">Wilt u een afspraak maken of heeft u vragen? Neem gerust contact met mij op.</p>
+                <p class="text-2xl font-semibold mb-4">Barbara Heezius</p>
+                <div class="space-y-2">
+                    <p>
+                        <a href="tel:+31623057635" class="hover:underline">+31 (0)6 - 2305 7635</a>
+                    </p>
+                    <p>
+                        <a href="mailto:barbara15@live.nl" class="hover:underline">barbara15@live.nl</a>
+                    </p>
+                    <p>
+                        <a href="https://instagram.com/barbaras_healing" class="hover:underline">@barbaras_healing</a>
+                    </p>
+                    <p>Velsen-Zuid</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-blue bg-opacity-90 border-t border-brand-gold relative z-10">
+        <div class="max-w-6xl mx-auto px-4 py-8 text-center text-brand-gold">
+            <p>&copy; 2024 Barbara's Healing - Ayurvedische Massage</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const section = document.querySelector(this.getAttribute('href'));
+                const navHeight = document.querySelector('nav').offsetHeight;
+                const targetPosition = section.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
