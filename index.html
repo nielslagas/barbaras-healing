@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barbara's Healing - Ayurvedische Massage</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap');
         
@@ -96,6 +97,53 @@
         section {
             border-bottom: 1px solid var(--color-gold);
         }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .desktop-menu {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+
+            .mobile-menu-items {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--color-blue);
+                border-bottom: 1px solid var(--color-gold);
+                padding: 1rem;
+            }
+
+            .mobile-menu-items.active {
+                display: block;
+            }
+
+            .mobile-menu-items a {
+                display: block;
+                padding: 0.75rem 0;
+                text-align: center;
+            }
+        }
+
+        .contact-link {
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-link:hover {
+            color: var(--color-light-gold);
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
@@ -108,10 +156,20 @@
                         <span class="font-semibold text-2xl text-brand-gold">Barbara's Healing</span>
                     </div>
                 </div>
-                <div class="flex items-center space-x-8">
+                <div class="desktop-menu flex items-center space-x-8">
                     <a href="#home" class="nav-link py-4 px-2 text-brand-gold hover:text-brand-gold transition duration-300">Home</a>
                     <a href="#behandelingen" class="nav-link py-4 px-2 text-brand-gold hover:text-brand-gold transition duration-300">Behandelingen</a>
                     <a href="#contact" class="nav-link py-4 px-2 text-brand-gold hover:text-brand-gold transition duration-300">Contact</a>
+                </div>
+                <div class="mobile-menu">
+                    <button id="mobile-menu-button" class="text-brand-gold p-4">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                    <div class="mobile-menu-items">
+                        <a href="#home" class="nav-link text-brand-gold hover:text-brand-gold transition duration-300">Home</a>
+                        <a href="#behandelingen" class="nav-link text-brand-gold hover:text-brand-gold transition duration-300">Behandelingen</a>
+                        <a href="#contact" class="nav-link text-brand-gold hover:text-brand-gold transition duration-300">Contact</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -183,13 +241,28 @@
                 <p class="text-2xl font-semibold mb-4">Barbara Heezius</p>
                 <div class="space-y-2">
                     <p>
-                        <a href="tel:+31623057635" class="hover:underline">+31 (0)6 - 2305 7635</a>
+                        <a href="https://wa.me/31623057635" class="contact-link">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>Via WhatsApp: +31 (0)6 - 2305 7635</span>
+                        </a>
                     </p>
                     <p>
-                        <a href="mailto:barbara15@live.nl" class="hover:underline">barbara15@live.nl</a>
+                        <a href="tel:+31623057635" class="contact-link">
+                            <i class="fas fa-phone"></i>
+                            <span>+31 (0)6 - 2305 7635</span>
+                        </a>
                     </p>
                     <p>
-                        <a href="https://instagram.com/barbaras_healing" class="hover:underline">@barbaras_healing</a>
+                        <a href="mailto:barbara15@live.nl" class="contact-link">
+                            <i class="fas fa-envelope"></i>
+                            <span>barbara15@live.nl</span>
+                        </a>
+                    </p>
+                    <p>
+                        <a href="https://instagram.com/barbaras_healing" class="contact-link">
+                            <i class="fab fa-instagram"></i>
+                            <span>@barbaras_healing</span>
+                        </a>
                     </p>
                     <p>Velsen-Zuid</p>
                 </div>
@@ -205,6 +278,22 @@
     </footer>
 
     <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenuItems = document.querySelector('.mobile-menu-items');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenuItems.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.mobile-menu') && mobileMenuItems.classList.contains('active')) {
+                mobileMenuItems.classList.remove('active');
+            }
+        });
+
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
